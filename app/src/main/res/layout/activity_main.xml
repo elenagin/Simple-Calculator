@@ -9,6 +9,22 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/displayOperation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/display"
+        android:textAlignment="textEnd"
+        android:textSize="24sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
         android:id="@+id/display"
         android:layout_width="0dp"
         android:layout_height="50dp"

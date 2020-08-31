@@ -14,6 +14,9 @@ class MainActivity : AppCompatActivity() {
     private var res = 0.0f
     private val brainCalculator = CalculatorModel()
 
+    /* Function sets content view from activity_main.xml and assigns display variable
+    * @Elena Ginebra
+    * */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -22,6 +25,9 @@ class MainActivity : AppCompatActivity() {
 
     fun nothing(view: View) {}
 
+    /* Function receives a number from button and displays given number
+    * @Elena Ginebra
+    * */
     fun numPressed(aButton: View) {
         var pressedButton = (aButton as Button).text
 
@@ -55,6 +61,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+    /* Function receives an operator from View and displays result of given operation
+    * @Elena Ginebra
+    * */
     fun operatorPressed(aButton: View) {
         if (flagFirstDigitDisplay) {
             brainCalculator.setOperand(display.text.toString().toFloat())
@@ -70,6 +80,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /* Function receives a button from View and calls Model to clear all
+    * @Elena Ginebra
+    * */
     fun clear(aButton: View) {
         brainCalculator.clearAll()
         display.text = "0"
