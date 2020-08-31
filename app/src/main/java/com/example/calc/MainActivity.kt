@@ -61,7 +61,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
     /* Function receives an operator from View and displays result of given operation
     * @Elena Ginebra
     * */
@@ -80,6 +79,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /* Function receives an operator from View and displays result of given operation
+    * @Elena Ginebra
+    * */
+    fun memoryButtonsPressed(aButton: View) {
+        brainCalculator.setOperand(display.text.toString().toFloat())
+        brainCalculator.executeMemoryOperation((aButton as Button).text.toString())
+    }
+
     /* Function receives a button from View and calls Model to clear all
     * @Elena Ginebra
     * */
@@ -89,5 +96,4 @@ class MainActivity : AppCompatActivity() {
         flagFirstDigitDisplay = false
         flagDecimalPoint = false
     }
-
 }

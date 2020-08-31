@@ -9,6 +9,7 @@ class CalculatorModel {
     private var operand = 0.0f
     private var operandInWaiting = 0.0f
     private var operatorInWaiting = ""
+    private var calculatorMemory = 0.0f
 
     /* Function receives Float from controller and sets operand
     * @Elena Ginebra
@@ -17,11 +18,21 @@ class CalculatorModel {
         operand = anOperand
     }
 
-    /* Function receives String from controller, executes operation and returns Float with answer
+    /* Function receives String from controller, executes memory operations
     * @Elena Ginebra
     * */
     fun executeOperation(anOperation: String): Float {
         executeOperatorInWaiting()
+        operatorInWaiting = anOperation
+        operandInWaiting = operand
+        return this.operand
+    }
+
+    /* Function receives String from controller, executes memory operations
+    * @Elena Ginebra
+    * */
+    fun executeMemoryOperation(anOperation: String): Float {
+        executeMemoryOperatorInWaiting()
         operatorInWaiting = anOperation
         operandInWaiting = operand
         return this.operand
@@ -60,6 +71,25 @@ class CalculatorModel {
             operand = operandInWaiting.pow(operand)
         }
     }
+
+
+    /* Private function executes waiting memory operation depending on the waiting operator
+    * @Elena Ginebra
+    * */
+    private fun executeMemoryOperatorInWaiting() {
+        if (operatorInWaiting == "MC") {
+            operand = 7f
+        } else if (operatorInWaiting == "MR") {
+            operand = 8f
+        } else if (operatorInWaiting == "MS") {
+            operand = 20f
+        } else if (operatorInWaiting == "M+") {
+            operand = 8111f
+        } else if (operatorInWaiting == "M-") {
+            operand = 3333f
+        }
+    }
+
 
     /* Function clears all operands, operators and memory
     * @Elena Ginebra
