@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="IconLauncherShape">
+        <ignore path="src/main/res/mipmap-hdpi/calculatoricon.png" />
+        <ignore path="src/main/res/mipmap-mdpi/calculatoricon.png" />
+        <ignore path="src/main/res/mipmap-xhdpi/calculatoricon.png" />
+        <ignore path="src/main/res/mipmap-xxhdpi/calculatoricon.png" />
+        <ignore path="src/main/res/mipmap-xxhdpi/calculatoricon.png" />
+        <ignore path="src/main/res/mipmap-xxhdpi/calculatoricon.png" />
+        <ignore path="src/main/res/mipmap-xxxhdpi/calculatoricon.png" />
+    </issue>
+</lint>

@@ -1,0 +1,36 @@
+<!--suppress CheckTagEmptyBody -->
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="display">0</string>
+    <string name="bZero">0</string>
+    <string name="bOne">1</string>
+    <string name="bTwo">2</string>
+    <string name="bThree">3</string>
+    <string name="bFour">4</string>
+    <string name="bFive">5</string>
+    <string name="bSix">6</string>
+    <string name="bSeven">7</string>
+    <string name="bEight">8</string>
+    <string name="bNine">9</string>
+    <string name="bPlus">+</string>
+    <string name="bMinus">-</string>
+    <string name="bDivide">÷</string>
+    <string name="bMultiply">×</string>
+    <string name="bEquals">=</string>
+    <string name="bDot">.</string>
+    <string name="bC">C</string>
+    <string name="bMC">MC</string>
+    <string name="bMR">MR</string>
+    <string name="bMS">MS</string>
+    <string name="bMPlus">M+</string>
+    <string name="bMMinus">M-</string>
+    <string name="bSin">sin</string>
+    <string name="bCos">cos</string>
+    <string name="bSqrt">√</string>
+    <string name="bExp">^</string>
+    <string name="bSwitchSign">+/-</string>
+    <string name="bFraction">1/x</string>
+    <string name="bEE">10^x</string>
+    <string name="bPi">π</string>
+
+</resources>
