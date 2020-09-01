@@ -2,9 +2,11 @@ package com.example.calc
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import java.lang.Error
 
 class MainActivity : AppCompatActivity() {
@@ -71,20 +73,27 @@ class MainActivity : AppCompatActivity() {
         }
         res = brainCalculator.executeOperation((aButton as Button).text.toString())
         flagDecimalPoint = false
-
         try {
             display.text = res.toString()
         } catch (e: Error) {
-            display.text = "Error"
+            Toast.makeText(applicationContext,"Not valid",Toast.LENGTH_SHORT).show()
         }
     }
 
-    /* Function receives an operator from View and displays result of given operation
+    /* Function receives a memory operator from View and implements given operation
     * @Elena Ginebra
     * */
     fun memoryButtonsPressed(aButton: View) {
-        brainCalculator.setOperand(display.text.toString().toFloat())
-        brainCalculator.executeMemoryOperation((aButton as Button).text.toString())
+        if ((aButton as Button).text.toString() == "MR"){
+            res = brainCalculator.executeMemoryOperation(aButton.text.toString())
+            display.text = res.toString()
+            brainCalculator.setOperand(res)
+            flagFirstDigitDisplay = false
+            flagDecimalPoint = false
+        } else {
+            brainCalculator.setOperand(display.text.toString().toFloat())
+            brainCalculator.executeMemoryOperation(aButton.text.toString())
+        }
     }
 
     /* Function receives a button from View and calls Model to clear all

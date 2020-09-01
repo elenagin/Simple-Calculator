@@ -1,5 +1,6 @@
 package com.example.calc
 
+import android.widget.Toast
 import kotlin.math.pow
 import kotlin.math.sin
 import kotlin.math.cos
@@ -9,7 +10,7 @@ class CalculatorModel {
     private var operand = 0.0f
     private var operandInWaiting = 0.0f
     private var operatorInWaiting = ""
-    private var calculatorMemory = 0.0f
+    var calculatorMemory = 0.0f
 
     /* Function receives Float from controller and sets operand
     * @Elena Ginebra
@@ -32,10 +33,11 @@ class CalculatorModel {
     * @Elena Ginebra
     * */
     fun executeMemoryOperation(anOperation: String): Float {
-        executeMemoryOperatorInWaiting()
         operatorInWaiting = anOperation
         operandInWaiting = operand
-        return this.operand
+        executeMemoryOperatorInWaiting()
+        println("Just before returning memory, memory=" + this.calculatorMemory)
+        return this.calculatorMemory
     }
 
     /* Private function executes waiting Operation depending on the waiting operator
@@ -69,6 +71,8 @@ class CalculatorModel {
         } else if (operatorInWaiting == "10^x") {
             operandInWaiting = 10.0f
             operand = operandInWaiting.pow(operand)
+        } else if (operatorInWaiting == "MR") {
+            operand = calculatorMemory
         }
     }
 
@@ -77,16 +81,18 @@ class CalculatorModel {
     * @Elena Ginebra
     * */
     private fun executeMemoryOperatorInWaiting() {
+        println("INSIDE executeMemoryOperatorInWaiting")
         if (operatorInWaiting == "MC") {
-            operand = 7f
-        } else if (operatorInWaiting == "MR") {
-            operand = 8f
+            calculatorMemory = 0.0f
         } else if (operatorInWaiting == "MS") {
-            operand = 20f
+            calculatorMemory = operand
+            println(calculatorMemory)
         } else if (operatorInWaiting == "M+") {
-            operand = 8111f
+            calculatorMemory += operand
         } else if (operatorInWaiting == "M-") {
-            operand = 3333f
+            calculatorMemory = calculatorMemory - operand
+        } else if (operatorInWaiting == "MR") {
+            operand = calculatorMemory
         }
     }
 
@@ -98,5 +104,6 @@ class CalculatorModel {
         operand = 0.0f
         operandInWaiting = 0.0f
         operatorInWaiting = ""
+        calculatorMemory = 0.0f
     }
 }
